@@ -21,7 +21,15 @@ const secondGongDelay = 1
 // const firstGongHour = () => document.getElementById('firstGongHour')
 // const firstGongMinute = () => document.getElementById('firstGongMinute')
 // const secondGongHour = () => document.getElementById('secondGongHour')
+
 // const secondGongMinute = () => document.getElementById('secondGongMinute')
+
+const setGongNrsInHtml = () => {
+  firstGongLabel.querySelector('.hour').textContent = forceTwoDigits(hour)
+  firstGongLabel.querySelector('.minute').textContent = forceTwoDigits(minute)
+  secondGongLabel.querySelector('.hour').textContent = forceTwoDigits(hour)
+  secondGongLabel.querySelector('.minute').textContent = forceTwoDigits(minute)
+}
 
 const numberInputs = document.querySelectorAll('#inputs input')
 
@@ -33,6 +41,7 @@ const init = (currentDate) => {
   activateTimer()
   setDeactivateTimerButton()
   setTestButton()
+  setGongNrsInHtml()
   // setEvListenerForInputFiels()
 
 }
