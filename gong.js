@@ -15,11 +15,11 @@ const firstGongLabel = document.getElementById('firstGong')
 const secondGongLabel = document.getElementById('secondGong')
 
 
-const hour = 17
-const minute = 47
-const second = 30
+const hour = 10
+const minute = 20
+const second = 0
 
-const secondGongDelay = 1
+const secondGongDelay = 5
 
 // const firstGongHour = () => document.getElementById('firstGongHour')
 // const firstGongMinute = () => document.getElementById('firstGongMinute')
@@ -97,7 +97,7 @@ const timerObj = {
   debug: false
 }
 
-const setTestButton = () => testButton.addEventListener('click', () => audioTest.play())
+const setTestButton = () => testButton.addEventListener('click', () => gongAudio1.play())
 
 const activateTimer = () => {
   deactivateButton.setAttribute('disabled', 'disabled')
