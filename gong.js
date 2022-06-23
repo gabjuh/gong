@@ -1,7 +1,9 @@
 'use strict'
 
 
-const audio = new Audio('Alarm03.wav')
+const audioTest = new Audio('Alarm03.wav')
+const gongAudio1 = new Audio('gong_1.mp3')
+const gongAudio2 = new Audio('gong_2.mp3')
 const testButton = document.querySelector('#test')
 const activateButton = document.getElementById('activate')
 const deactivateButton = document.getElementById('deactivate')
@@ -12,9 +14,10 @@ const info = document.getElementById('info')
 const firstGongLabel = document.getElementById('firstGong')
 const secondGongLabel = document.getElementById('secondGong')
 
-const hour = 8
-const minute = 15
-const second = 0
+
+const hour = 17
+const minute = 47
+const second = 30
 
 const secondGongDelay = 1
 
@@ -28,7 +31,7 @@ const setGongNrsInHtml = () => {
   firstGongLabel.querySelector('.hour').textContent = forceTwoDigits(hour)
   firstGongLabel.querySelector('.minute').textContent = forceTwoDigits(minute)
   secondGongLabel.querySelector('.hour').textContent = forceTwoDigits(hour)
-  secondGongLabel.querySelector('.minute').textContent = forceTwoDigits(minute)
+  secondGongLabel.querySelector('.minute').textContent = forceTwoDigits(minute + secondGongDelay)
 }
 
 const numberInputs = document.querySelectorAll('#inputs input')
@@ -159,7 +162,7 @@ const Timer = (object) => {
     // 1
      // If time runs out for the first Gong
      if (object.firstGong < currentDate && !firstClick && !firstGongAlreadyDone) {
-      audio.play()
+      gongAudio1.play()
       console.log(`First Gong, ${secondGongDelay} Minutes left!`)     
       setInfo(`Erster Gong ist vorbei, ${secondGongDelay} Minuten sind verblieben!`, 'success')
       firstGongLabel.classList.remove('border', 'border-success')
@@ -172,7 +175,7 @@ const Timer = (object) => {
     if (distanceSecond < 0 && !firstClick) {
       clearInterval(countDown)
       countDownNumbers.innerHTML = '00:00:00'
-      audio.play()
+      gongAudio2.play()
       console.log('Time is out!')     
       setInfo('Die Zeit ist abgelaufen!', 'success')
       secondGongLabel.classList.remove('border', 'border-success')
