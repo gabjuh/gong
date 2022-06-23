@@ -97,7 +97,7 @@ const timerObj = {
   debug: false
 }
 
-const setTestButton = () => testButton.addEventListener('click', () => audio.play())
+const setTestButton = () => testButton.addEventListener('click', () => audioTest.play())
 
 const activateTimer = () => {
   deactivateButton.setAttribute('disabled', 'disabled')
